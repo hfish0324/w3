@@ -87,6 +87,10 @@ body{
     margin-top: 5px;
 }
 
+#image:hover{
+    width:70%;
+}
+
 #bear-list{
     border: 2px solid green;
     color: white;
@@ -96,4 +100,42 @@ body{
 #fun-facts{
     text-shadow: 2px 2px 2px black;
     color: maroon;
+    /* One way to call animation */
+    animation-name: percentagetextanimation;
+    /* How long it will play */
+    animation-duration: 3s;
+    /* How many times to play */
+    animation-iteration-count: infinite;
+    /* Is this animiation going in reverse at the end */
+    animation-direction: alternate;
+}
+
+@keyframes percentagetextanimation {
+    0%{
+        color: black;
+        transform:translateX(0px)
+    }
+    25%{
+        color:maroon;
+        transform: translateX(50px)
+    }
+    50%{
+        color:palevioletred;
+        transform:translateX(-50px)
+    }
+    75%{
+        color:red;
+        transform:translateX(0px)
+    }    
+}
+
+@keyframes textanimation {
+    /* From = the beginning of the animation */
+    from{
+        color:black;
+    }
+    /* To = the end result */
+    to{
+        color:palevioletred;
+    }
 }
