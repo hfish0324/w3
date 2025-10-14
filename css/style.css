@@ -53,7 +53,8 @@ body{
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
-    border:2px solid brown
+    border:2px solid brown;
+    animation: navBarAnimation 1s infinite alternate;
 }
 
 .buttonDesign{
@@ -137,5 +138,14 @@ body{
     /* To = the end result */
     to{
         color:palevioletred;
+    }
+}
+
+@keyframes navBarAnimation {
+    from{
+        border:2px solid brown
+    }    
+    to{
+        border:5px solid white
     }
 }
