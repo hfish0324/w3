@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Canvas Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harrison Fisher">
+    <meta name="description" content="Week 3: Day 2">
+</head>
+
+
+<body>
+    <h1>Canvas Lab</h1>
+    <canvas id="canvas" width="800" height="600" style="border: 1px solid"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas")
+        var ctx = canvas.getContext('2d')
+
+        // Gives the color of the next shape about to be drawn.
+        // Fills in with the color
+        ctx.fillStyle = "#C0DA74"
+
+        // Draw a rectangle
+        // 1st value x pos, 2nd value is y pos, 3rd is width, 4th is height
+        ctx.fillRect(40,20,50,100)
+
+        //Make a box outline
+
+        ctx.strokeStyle = "#94AE89"
+        ctx.lineWidth = "1"
+        ctx.strokeRect(100,20,50,100)
+
+        //Let's draw some lines
+        //ctx.strokeStyle gives lines color
+        ctx.strokeStyle = "#4FB286"
+        //tell canvas we are drawing lines
+        ctx.beginPath()
+        //tell the canvas the starting point
+        ctx.moveTo(0,0)
+        //lines 43-46: feeds the canvas a bunch of lines to go to
+        ctx.lineTo(800,600)
+        ctx.lineTo(800,0)
+        ctx.lineTo(0,600)
+        ctx.lineTo(0,0)
+        //ctx.stroke tells the canvas to draw the lines
+        ctx.stroke();
+
+        ctx.strokeStyle = "#0F7173"
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.lineTo(300,0)
+        ctx.lineTo(0,300)
+        ctx.lineTo(300,0)
+        ctx.lineTo(0,300)
+        ctx.stroke()
+
+        //A single line
+        ctx.strokeStyle = "#621708"
+        ctx.beginPath()
+        ctx.lineTo(400,20)
+        ctx.lineTo(400,600)
+        ctx.stroke()
+
+
+        //Drawing a Triangle
+        ctx.strokeStyle = "#FFB7C3"
+        ctx.fillStyle = "#D3FAC7"
+        ctx.beginPath()
+        ctx.moveTo(400,20)
+        ctx.lineTo(450,100)
+        ctx.lineTo(400,120)
+        ctx.lineTo(350,100)
+        
+        //Conforming a shape
+        ctx.closePath();
+        //Filling the shape
+        ctx.fill()
+        //Drawing the lines
+        ctx.stroke()
+
+        //Let's draw a circle
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "blanchedalmond"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(400,300,100,0, 4 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "white"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(450,280,20,0, 4 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "white"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(350,280,20,0, 4 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "black"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(350,280,10,0, 4 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "black"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(450,280,10,0, 4 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "maroon"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(400,320,60,0, 2 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "white"
+        ctx.beginPath()
+        //ctx.arc(x pos, y pos, radius, start angle, end angle, is clockwise)
+        ctx.arc(400,320,30,0, 2 * Math.PI/2,false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.strokeStyle = "#black"
+        ctx.beginPath()
+        moveTo(400,400)
+        ctx.lineTo(400,320)
+        ctx.lineTo(400,350)
+        ctx.stroke()
+
+    </script>
+
+</body>
+
+
+</html>
