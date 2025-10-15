@@ -1,0 +1,64 @@
+#bg{
+    background-color: cornflowerblue;
+    /* Setting the width */
+    border: 3px solid black;
+    /* Texting alignment to the center */
+    text-align: center;
+    /* Setting the padding so everything is 25 pixels from the edges */
+    padding: 25px;
+}
+
+#wrapper{
+    margin: auto;
+    padding: 10px;
+}
+
+#hello{
+    /* Changed the font size */
+    font-size: 35px;
+    /* Set the color */
+    color: White;
+    /* Made sure its aligned to the center */
+    text-align: center;
+    /* Gave it a text shadow
+    1st and 2nd value are cords
+    3rd value is how much blur
+    4th value is color */
+    text-shadow: 2px 2px 2px black;
+    line-height: 30px;
+    animation: textanimation 1s infinite alternate;
+}
+
+#shapeTitle{
+    font-family: cursive;
+    font-style: oblique;
+    text-align: center;
+    margin: auto;
+}
+
+#pictureDiv{
+    border: solid black;
+    background-color: lightgray;
+}
+
+#nav-bar{
+    border: 1px solid white;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.buttonThing:hover {
+    background-color: #2ecc71; /* Change background color */
+    transform: scale(1.1); /* Slightly enlarge the button */
+  }
+
+  @keyframes textanimation {
+    /* From = the beginning of the animation */
+    from{
+        color:black;
+    }
+    /* To = the end result */
+    to{
+        color:palevioletred;
+    }
+}
