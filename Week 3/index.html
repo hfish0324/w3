@@ -8,7 +8,7 @@
     <meta name="description" content="week 3 class attribute assignment">
 
     <link rel="stylesheet" href="./Style/style.css">
-
+   
 
     <title> Harrison Fisher Week 3</title>
 </head>
@@ -31,47 +31,27 @@
             <div id="nav-bar" class="border-unity">
                 <!-- Buttons -->
                 <div class="btn-container">
-                    <button class="buttonThing" id="squarebtn">Square Button</button>
-                    <button class="buttonThing" id="circlebtn">Circle Button</button>
-                    <button class="buttonThing" id="pentagonbtn">Pentagon Button</button>
-                    <button class="buttonThing" id="starbtn">Star Button</button>
-                    <button class="buttonThing" id="linebtn">Line Button</button>
+                    <button class="buttons" id="line">Draw Line</button>
+                    <button class="buttons" id="circle">Stamp Circle</button>
+                    <button class="buttons" id="star">Stamp Star</button>
+                    <button class="buttons" id="pentagon">Stamp Pentagon</button>
+                    <button class="buttons" id="square">Stamp Square</button>
                 </div>
             </div>
 
             <!-- Main Content! -->
             <div id="main-content" class="border-unity">
                 <!-- Give this a background image! -->
-                <div id="pictureDiv" width="800" height="800" class="boarder-unity">
-
+                <div id="pictureDiv" class="boarder-unity">
 
                     <!-- SHAPES MUST GO INTO THIS DIV, ONCE DONE Shape Title can disappear -->
                     <div id="shapeContent">
-                        <h1 id="shapeTitle">Shapes Should Draw Here</h1>
-                        <canvas id="canvas" width="800" height="800" style="border: 1px solid; background-color: white;">
-                            
-                            <script>
-
-                                var canvas = document.getElementById("canvas")
-                                var ctx = canvas.getContext('2d')
-                                
-                                ctx.fillStyle = "yellow"
-                                ctx.fillRect(301,84,100,100)
-
-                                ctx.strokeStyle = "black"
-                                ctx.strokeRect(301,84,100,100)
-                                ctx.lineWidth = "5"
-
-
-
-                            </script>
-
-
-                        </canvas>
+                        <h1 id="shapeTitle">Shapes Should Draw Here <p3 id="mousePosTXT"> MousePos:<p4 id="mousePos"> 0, 0</p4></p3></h1>
+                        <canvas id="canvas" width="800" height="600"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 </body>
-
+<script src="./JS/script.js"></script>
 </html>

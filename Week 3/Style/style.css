@@ -1,64 +1,87 @@
-#bg{
-    background-color: cornflowerblue;
-    /* Setting the width */
-    border: 3px solid black;
-    /* Texting alignment to the center */
-    text-align: center;
-    /* Setting the padding so everything is 25 pixels from the edges */
-    padding: 25px;
+:root{
+    --can-draw: green;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 5px solid black;
+    background-color: aliceblue;
 }
 
 #wrapper{
-    margin: auto;
-    padding: 10px;
+    display: grid;
+    place-items: center;
+    font-family: 'fantasy', 'papyrus';
+    color: lightblue;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.422);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-#hello{
-    /* Changed the font size */
-    font-size: 35px;
-    /* Set the color */
-    color: White;
-    /* Made sure its aligned to the center */
-    text-align: center;
-    /* Gave it a text shadow
-    1st and 2nd value are cords
-    3rd value is how much blur
-    4th value is color */
-    text-shadow: 2px 2px 2px black;
-    line-height: 30px;
-    animation: textanimation 1s infinite alternate;
+#main-content{
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+    min-width: 70%;
+    min-height: 70%;
+    background-image: url("../Images/fall.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #shapeTitle{
-    font-family: cursive;
-    font-style: oblique;
-    text-align: center;
-    margin: auto;
-}
-
-#pictureDiv{
-    border: solid black;
-    background-color: lightgray;
+    transform: translateX(25%);
 }
 
 #nav-bar{
-    border: 1px solid white;
-    padding: 5px;
-    margin-bottom: 15px;
+    background-color: rgba(0, 255, 255, 0.269);
+    border: 2px solid grey;
+    padding: 5px 20px 5px 20px;
 }
 
-.buttonThing:hover {
-    background-color: #2ecc71; /* Change background color */
-    transform: scale(1.1); /* Slightly enlarge the button */
-  }
+.buttons{
+    background-color: lavender;
+    box-shadow: 3px 5px 10px black;;
+    transition: .5 ease;
+    background-color: lightgray;
+    border-color: black;
+    border-radius: 0%;
+}
+.buttons:hover{
+    transform: translate(0, -20%) scale(110%);
+    transition: .5 ease;
+}
+.buttons:active{
+    background-color: yellow;
+    transform: translate(0, -10%) scale(100%)
+}
 
-  @keyframes textanimation {
-    /* From = the beginning of the animation */
-    from{
-        color:black;
-    }
-    /* To = the end result */
-    to{
-        color:palevioletred;
-    }
+
+#mousePosTXT{
+    font-size: 15px;
+    margin-left: 30px;
+}
+#mousePos{
+    color: var(--can-draw);
+}
+
+#canvas{
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 3px 5px 10px black;
+    cursor: crosshair;
+}
+
+#bg{
+    background-image: url("../Images/gradient.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
