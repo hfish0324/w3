@@ -135,40 +135,65 @@ var isDrawing = false; //var to indicate if drawing is in progress
 
 
 function drawShape(x1, y1, x2, y2, shapeType) { //draw shape based on type and start/end coordinates
-    ctx.strokeStyle = "black";
-    ctx.fillStyle = "yellow";
-    ctx.lineWidth = 2;
-
-    log = `1. Setting strokeStyle to black, fillStyle to yellow and lineWidth to 2`;
 
     ctx.beginPath();
-    log += `
-    2. Starting Draw Path`;
+    log = `1. Starting Draw Path`;
+    
 
     switch(shapeType) {
         case "line":
+            ctx.strokeStyle = "rgb(255,0,0)";
+            ctx.fillStyle = "transparent";
+            ctx.lineWidth = 5;
+            log += `
+            2. Setting strokeStyle, fillStyle, and lineWidth for ${shapeType}`;
+
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
             log += `
             3. Drawing Line from (${x1}, ${y1}) to (${x2}, ${y2})`;
             break;
         case "circle":
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "#ffff00";
+            ctx.lineWidth = 5;
+            log += `
+            2. Setting strokeStyle, fillStyle, and lineWidth for ${shapeType}`;
+
             var radius = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)); //calculate radius based on distance between start and end points
             ctx.arc(x1, y1, radius, 0, 2 * Math.PI);
             log += `
             3. Drawing Circle at (${x1}, ${y1}) with radius ${radius}`;
             break;
         case "star":
+            ctx.strokeStyle = "rgb(32,32,32)";
+            ctx.fillStyle = "#ffff00";
+            ctx.lineWidth = 5;
+            log += `
+            2. Setting strokeStyle, fillStyle, and lineWidth for ${shapeType}`;
+
             drawStar(x1, y1, 5, 30, 15);
             log += `
             3. Drawing Star at (${x1}, ${y1}) with outer radius 30 and inner radius 15`;
             break;
         case "pentagon":
-            drawPolygon(x1, y1, 5, 30);
+            ctx.strokeStyle = "#00ffff";
+            ctx.fillStyle = "#ff00ff";
+            ctx.lineWidth = 5;
+            log += `
+            2. Setting strokeStyle, fillStyle, and lineWidth for ${shapeType}`;
+
+            drawPentagon(x1, y1, 5, 30);
             log += `
             3. Drawing Pentagon at (${x1}, ${y1}) with radius 30`;
             break;
         case "square":
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = "yellow";
+            ctx.lineWidth = 5;
+            log += `
+            2. Setting strokeStyle, fillStyle, and lineWidth for ${shapeType}`;
+
             var side = Math.abs(x2 - x1); //calculate side length based on horizontal distance
             ctx.rect(x1, y1, side, side);
             log += `
@@ -189,41 +214,6 @@ function drawShape(x1, y1, x2, y2, shapeType) { //draw shape based on type and s
     console.log(log);
     log = null;
 }
-
-function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
-    var rot = Math.PI / 2 * 3;
-    var x = cx;
-    var y = cy;
-    var step = Math.PI /
-    spikes;
-    ctx.moveTo(cx, cy - outerRadius);
-    for (i = 0; i < spikes; i++) {
-        x = cx + Math.cos(rot) * outerRadius;
-        y = cy + Math.sin(rot) * outerRadius;
-        ctx.lineTo(x, y);
-        rot += step;
-        x = cx + Math.cos(rot) * innerRadius;
-        y = cy + Math.sin(rot) * innerRadius;
-        ctx.lineTo(x, y);
-        rot += step;
-    }
-    ctx.lineTo(cx, cy - outerRadius);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-}
-
-function drawPolygon(x, y, sides, radius) {
-    if (sides < 3) return;
-    var angle = (Math.PI * 2) / sides;
-    ctx.moveTo(x + radius * Math.cos(0), y + radius * Math.sin(0));
-    for (var i = 1; i <= sides; i++) {
-        ctx.lineTo(x + radius * Math.cos(i * angle), y + radius * Math.sin(i * angle));
-    }
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    }
 
 
 
@@ -247,3 +237,50 @@ canvas.addEventListener("mouseup", function(event) {
     }
 });
 
+// Draw a star shape centered at (cx, cy)
+function drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+    let rot = Math.PI / 2 * 3;
+    let x = cx;
+    let y = cy;
+    let step = Math.PI / spikes;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - outerRadius);
+
+    for (let i = 0; i < spikes; i++) {
+        x = cx + Math.cos(rot) * outerRadius;
+        y = cy + Math.sin(rot) * outerRadius;
+        ctx.lineTo(x, y);
+        rot += step;
+
+        x = cx + Math.cos(rot) * innerRadius;
+        y = cy + Math.sin(rot) * innerRadius;
+        ctx.lineTo(x, y);
+        rot += step;
+    }
+
+    ctx.lineTo(cx, cy - outerRadius);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+}
+
+
+// Draw a pentagon shape centered at (cx, cy)
+function drawPentagon(cx, cy, sides, radius) {
+    const angle = (Math.PI * 2) / sides;
+
+    ctx.beginPath();
+    for (let i = 0; i < sides; i++) {
+        const x = cx + radius * Math.cos(i * angle - Math.PI / 2);
+        const y = cy + radius * Math.sin(i * angle - Math.PI / 2);
+        if (i === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+}
