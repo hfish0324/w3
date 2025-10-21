@@ -16,7 +16,7 @@ body{
 #wrapper{
     display: grid;
     place-items: center;
-    font-family: 'fantasy', 'papyrus';
+    font-family: 'serif', 'Times New Roman';
     color: lightblue;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.422);
     width: 100vw;
